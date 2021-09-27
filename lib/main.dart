@@ -28,15 +28,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // creating an instance of the Random class
   final Random _random = Random();
+  // creating a variable of type Color
   Color color = Color.fromRGBO(255, 255, 255, 1.0);
-
+  // async color change method
   Future<Color> colorChanges() async {
+    // set the new state of the Color variable
     setState(() {
       color = Color.fromRGBO(_random.nextInt(255), _random.nextInt(255),
           _random.nextInt(255), 1.0);
     });
-
     return color;
   }
 
@@ -45,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: InkWell(
         onTap: () {
+          //click handling
           colorChanges();
         },
         child: Container(
